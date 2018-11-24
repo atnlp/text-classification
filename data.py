@@ -29,6 +29,9 @@ def read_files(filetype):
             filelines = file_input.readlines()
             all_texts += [rm_tags(filelines[0])]
 
+    all_texts = [z.lower().replace('\n', '') for z in all_texts]
+    all_texts = [z.replace('<br />', ' ') for z in all_texts]
+
     all_texts = np.array(all_texts)
     # return all_labels, all_texts
     if filetype == 'train':

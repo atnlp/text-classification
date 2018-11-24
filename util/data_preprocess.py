@@ -24,10 +24,10 @@ def vectorization(vector_type):
     vectorizer.fit(train['text'])
 
     x_train = vectorizer.transform(train['text'])
-    y_train = train['label']
+    y_train = train['label'].values
 
     x_test = vectorizer.transform(test['text'])
-    y_test = test['label']
+    y_test = test['label'].values
 
     return x_train, y_train, x_test, y_test
 
@@ -44,10 +44,10 @@ def word_vectors():
     train_seq = tokenizer.texts_to_sequences(train['text'])
     test_seq = tokenizer.texts_to_sequences(test['text'])
 
-    x_train = sequence.pad_sequences(train_seq, maxlen=200)  # shape  (25000, 100)
+    x_train = sequence.pad_sequences(train_seq, maxlen=200)  # shape  (25000, 200)
     y_train = train['label']
-    x_test = sequence.pad_sequences(test_seq, maxlen=200)  # shape (25000, 100)
+    x_test = sequence.pad_sequences(test_seq, maxlen=200)  # shape (25000, 200)
     y_test = test['label']
-    return x_train, y_train, x_test, y_test
+    return x_train, y_train.values, x_test, y_test.values
 
 

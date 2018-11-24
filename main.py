@@ -1,7 +1,6 @@
 # encoding: utf-8
-import argparse
-from ml_models import *
-from sklearn.metrics import roc_curve, roc_auc_score, accuracy_score, classification_report
+from models.ml_models import *
+from sklearn.metrics import classification_report
 from util import data_preprocess
 
 
